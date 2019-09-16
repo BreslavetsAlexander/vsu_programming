@@ -1,3 +1,3 @@
 s = input('s: ')
 
-print(s[0::] == s[::-1])
+print(s == s[::-1])
