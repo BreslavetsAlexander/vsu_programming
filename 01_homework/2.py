@@ -5,6 +5,6 @@ d = float(input('d: '))
 f = float(input('f: '))
 
 if f - d:
-    print('Делить на ноль нельзя!')
-else:
     print((a * b - c) / (f - d))
+else:
+    print('Делить на ноль нельзя!')
