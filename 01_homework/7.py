@@ -1,9 +1,9 @@
 x = int(input('x: '))
 y = int(input('y: '))
-sum = 0
+s = 0
 
 for num in range(x, y+1):
-    if num%5 == 0:
-        sum += num
+    if num % 5 == 0:
+        s += num
 
-print(sum)
+print(s)
