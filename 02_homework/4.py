@@ -1,20 +1,17 @@
 def calculate_brackets(s):
-    brackets = []
-    opened_brackets = 0
-    closed_brackets = 0
-    msg = 'Ok'
+    opened_brackets = []
+    closed_brackets = []
     for i in s:
-        if i == '(' or i == ')':
-            brackets.append(i)
-    for b in brackets:
-        if b == '(':
-            opened_brackets += 1
-    closed_brackets = len(brackets) - opened_brackets
-    if opened_brackets > closed_brackets:
-        msg = 'missing ' + str(opened_brackets - closed_brackets) + ' )'
-    elif closed_brackets > opened_brackets:
-        msg = 'missing ' + str(closed_brackets - opened_brackets) + ' ('
-    return msg
+        if i == '(':
+            opened_brackets.append(i)
+        elif i == ')':
+            closed_brackets.append(i)
+    brackets_difference = len(opened_brackets) - len(closed_brackets)
+    if len(opened_brackets) > len(closed_brackets):
+        return 'missing ' + str(brackets_difference) + ' )'
+    elif len(opened_brackets) < len(closed_brackets):
+        return 'missing ' + str(abs(brackets_difference)) + ' ('
+    return 'Ok'
 
 
 user_str = input('str: ')
