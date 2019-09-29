@@ -5,5 +5,5 @@ while s:
     lst.append(s)
     s = input('s: ')
 
-lst = ''.join(sorted(lst)[::-1])
+lst = ''.join(sorted(lst, reverse=True))
 print(int(lst))
