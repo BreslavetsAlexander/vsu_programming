@@ -1,9 +1,3 @@
-lst = []
+from tools import help_fun
 
-s = input('s: ')
-
-while s:
-    lst.append(s)
-    s = input('s: ')
-
-print(lst)
+print(help_fun())
