@@ -1,7 +1,4 @@
-n = int(input('num: '))
+n = input('num: ')
 
-i = len(str(n))
-
-for x in range(i, 0, -1):
-    n = n % 10**x
-    print(n // 10**(x - 1))
+for i in n:
+    print(i)
