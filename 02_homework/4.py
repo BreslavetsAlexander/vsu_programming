@@ -1,11 +1,9 @@
 def calculate_brackets(s):
-    opened_brackets = list(filter(lambda sym: sym == '(', s))
-    closed_brackets = list(filter(lambda sym: sym == ')', s))
-    brackets_difference = len(opened_brackets) - len(closed_brackets)
-    if len(opened_brackets) > len(closed_brackets):
+    brackets_difference = abs(s.count('(') - s.count(')'))
+    if s.count('(') > s.count(')'):
         return 'missing ' + str(brackets_difference) + ' )'
-    elif len(opened_brackets) < len(closed_brackets):
-        return 'missing ' + str(abs(brackets_difference)) + ' ('
+    elif s.count('(') < s.count(')'):
+        return 'missing ' + str(brackets_difference) + ' ('
     return 'Ok'
 
 
