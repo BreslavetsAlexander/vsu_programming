@@ -1,7 +1,7 @@
 n = int(input('num: '))
 
-i = len(str(n))  # работает не только для 5-значного числа
-while i:
-    n = (n % 10**i)
-    i -= 1
-    print(int(n / 10**i))
+i = len(str(n))
+
+for x in range(i, 0, -1):
+    n = (n % 10**x)
+    print(n // 10**(x - 1))
