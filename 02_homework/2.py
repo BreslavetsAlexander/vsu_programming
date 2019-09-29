@@ -1,9 +1,4 @@
-lst = []
-s = input('s: ')
+from tools import help_fun
 
-while s:
-    lst.append(s)
-    s = input('s: ')
-
-lst = ''.join(sorted(lst, reverse=True))
+lst = ''.join(sorted(help_fun(), reverse=True))
 print(int(lst))
