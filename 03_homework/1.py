@@ -1,15 +1,12 @@
 s = input('s: ')
-oper = ''.join(list(filter(lambda sym: not sym.isdigit() and sym != '.', s)))
-x, y = s.replace(oper, ' ').split()
+symbols = ['+', '-', '*', '/', '//', '**']
+operation = ''
+for i in s:
+    if i in symbols:
+        operation += i
+
+x, y = s.replace(operation, ' ').split()
 x = float(x)
 y = float(y)
-operations = {
-    '+': x + y,
-    '-': x - y,
-    '*': x * y,
-    '/': x / y,
-    '//': x // y,
-    '**': x**y
-}
-
-print(operations[oper])
+val = [x + y, x - y, x * y, x / y, x // y, x**y]
+print(val[symbols.index(operation)])
