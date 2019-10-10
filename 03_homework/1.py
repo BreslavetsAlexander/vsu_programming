@@ -1,12 +1,20 @@
 s = input('s: ')
-symbols = ['+', '-', '*', '/', '//', '**']
-operation = ''
-for i in s:
-    if i in symbols:
-        operation += i
+symbols = {'+', '-', '*', '/', '//', '**'}
+operation = ''.join(symbols & set(s))
+operation_index = s.find(operation)
+x, y = s[:operation_index], s[operation_index + 1:]
 
-x, y = s.replace(operation, ' ').split()
-x = float(x)
-y = float(y)
-val = [x + y, x - y, x * y, x / y, x // y, x**y]
-print(val[symbols.index(operation)])
+if y.find(operation) != -1:
+    operation += operation
+    y = s[operation_index + 2:]
+
+x, y = float(x), float(y)
+operations = {
+    '+': x + y,
+    '-': x - y,
+    '*': x * y,
+    '/': x / y,
+    '//': x // y,
+    '**': x**y
+}
+print(operations[operation])
