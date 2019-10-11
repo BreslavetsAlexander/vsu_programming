@@ -1,7 +1,10 @@
 def is_simple(a):
-    if a == 2 or a == 3 or a == 5 or a == 7:
-        return True
-    return bool(a % 2 and a % 3 and a % 5 and a % 7)
+    simple = True
+    for i in range(2, a):
+        if not a % i:
+            simple = False
+            break
+    return simple
 
 
 x = int(input('x = '))
