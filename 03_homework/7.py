@@ -1,6 +1,6 @@
 user_str = input('str: ').split()
 
-s = list(map(lambda x: len(x), user_str))
+s = list(map(len, user_str))
 print(user_str[s.index(max(s))])
 
 words_collection = set(user_str)
