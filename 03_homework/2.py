@@ -3,7 +3,7 @@ def get_season(n):
         2 < n < 6: 'Spring',
         5 < n < 9: 'Summer',
         8 < n < 12: 'Autumn',
-        n == 12 or n < 3: 'Winter',
+        n in (12, 1, 2): 'Winter',
     }
     return seasons[True]
 
