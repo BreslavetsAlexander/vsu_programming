@@ -15,7 +15,7 @@ def get_dota_player(deq, people_dict):
             else:
                 deq += people_dict.get(current, [])
             checked_people.append(current)
-    return False
+    return 'Nobody players in Dota'
 
 
 people = {
@@ -27,5 +27,4 @@ people = {
 
 d = deque(people['Alice'])
 
-dota_player = get_dota_player(d, people)
-print(dota_player) if dota_player else print('Nobody players in Dota')
+print(get_dota_player(d, people))
