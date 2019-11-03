@@ -19,7 +19,6 @@ def set_value(key, value):
                     break
                 else:
                     storage[i].append([key, value])
-                    break
 
 
 def get_value(key):
@@ -35,6 +34,8 @@ set_value('abc', 10)
 set_value('abc', 100)
 set_value('abc', 1040)
 set_value('bac', 20)
+set_value('bac', 120)
+set_value('bac', 1220)
 print(get_value('abc'))
 print(get_value('bac'))
 
