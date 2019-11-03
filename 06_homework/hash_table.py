@@ -1,50 +1,41 @@
-values_storage = [[] for x in range(15)]
-keys_storage = [[] for x in range(15)]
+storage = [[] for x in range(15)]
 
 
 def hash(key):
     index = sum(list(map(ord, key)))
     index = sum(list(map(int, str(index))))
-    return index % len(values_storage)
+    return index % len(storage)
 
 
 def set_value(key, value):
     index = hash(key)
-    if keys_storage[index].count(key) < 1:
-        keys_storage[index].append(key)
-        values_storage[index].append(value)
-    values_storage[index][-1] = value
+    if not storage[index]:
+        storage[index] = [[key, value]]
+    else:
+        for i in range(len(storage)):
+            for j in range(len(storage[i])):
+                if storage[i][j][0] == key:
+                    storage[i][j][1] = value
+                    break
+                else:
+                    storage[i].append([key, value])
+                    break
 
 
-def get_element(key):
+def get_value(key):
     index = hash(key)
-    return values_storage[index][-1]
+    for i in range(len(storage[index])):
+        if key == storage[index][i][0]:
+            return storage[index][i][1]
 
 
-def reset_value(key):
-    index = hash(key)
-    j = ''
-    for i in range(len(keys_storage[index])):
-        if len(keys_storage[index]):
-            if keys_storage[index][i] == key:
-                j = i
-                values_storage[index][j] = 0
-                keys_storage[index][j] = ''
+print(storage)
 
+set_value('abc', 10)
+set_value('abc', 100)
+set_value('abc', 1040)
+set_value('bac', 20)
+print(get_value('abc'))
+print(get_value('bac'))
 
-set_value('abc', 1)
-set_value('abc', 2)
-set_value('abc', 22)
-set_value('abd', 225)
-set_value('abd', 220)
-
-print(get_element('abc'))
-print(get_element('abd'))
-
-print(values_storage)
-print(keys_storage)
-
-reset_value('abc')
-
-print(values_storage)
-print(keys_storage)
+print(storage)
