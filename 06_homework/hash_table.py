@@ -19,16 +19,16 @@ def set_value(key, value):
 
 def get_value(key):
     index = hash(key)
-    for i in range(len(storage[index])):
-        if key == storage[index][i][0]:
-            return storage[index][i][1]
+    for i in storage[index]:
+        if key == i[0]:
+            return i[1]
 
 
 def reset_value(key):
     index = hash(key)
-    for i in range(len(storage[index])):
-        if key == storage[index][i][0]:
-            storage[index][i][1] = 0
+    for i in storage[index]:
+        if key == i[0]:
+            i[1] = 0
             break
 
 
