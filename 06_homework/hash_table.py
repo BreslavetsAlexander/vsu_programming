@@ -9,16 +9,12 @@ def hash(key):
 
 def set_value(key, value):
     index = hash(key)
-    if not storage[index]:
-        storage[index] = [[key, value]]
+    for i in storage[index]:
+        if key == i[0]:
+            i[1] = value
+            break
     else:
-        for i in range(len(storage)):
-            for j in range(len(storage[i])):
-                if storage[i][j][0] == key:
-                    storage[i][j][1] = value
-                    break
-                else:
-                    storage[i].append([key, value])
+        storage[index].append([key, value])
 
 
 def get_value(key):
@@ -28,15 +24,31 @@ def get_value(key):
             return storage[index][i][1]
 
 
+def reset_value(key):
+    index = hash(key)
+    for i in range(len(storage[index])):
+        if key == storage[index][i][0]:
+            storage[index][i][1] = 0
+            break
+
+
 print(storage)
 
 set_value('abc', 10)
 set_value('abc', 100)
-set_value('abc', 1040)
+
 set_value('bac', 20)
 set_value('bac', 120)
-set_value('bac', 1220)
+
+set_value('b', 10)
+set_value('b', 20)
+
 print(get_value('abc'))
 print(get_value('bac'))
+print(get_value('b'))
+
+print(storage)
+
+reset_value('abc')
 
 print(storage)
