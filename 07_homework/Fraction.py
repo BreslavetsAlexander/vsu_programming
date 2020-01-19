@@ -4,9 +4,8 @@ class Fraction:
 
     def input_fraction(self):
         self.fraction = input('Type a fraction: ')
-        slash_index = self.fraction.index('/')
-        self.numerator = self.fraction[:slash_index]
-        self.denominator = self.fraction[slash_index + 1:]
+        self.numerator, self.denominator = self.fraction.split('/')
+        self.numerator, self.denominator = int(self.numerator), int(self.denominator)
 
     def print_fraction(self):
-        print(f'{int(self.numerator)}/{int(self.denominator)}')
+        print(f'{self.numerator}/{self.denominator}')
