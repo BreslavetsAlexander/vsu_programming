@@ -7,5 +7,5 @@ class Fraction:
         self.numerator, self.denominator = self.fraction.split('/')
         self.numerator, self.denominator = int(self.numerator), int(self.denominator)
 
-    def print_fraction(self):
-        print(f'{self.numerator}/{self.denominator}')
+    def __str__(self):
+        return f'{self.numerator}/{self.denominator}'
