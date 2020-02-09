@@ -9,8 +9,8 @@ class Fraction:
         self.numerator, self.denominator = int(self.numerator), int(self.denominator)
 
     def reduce(self):
-        a = self.numerator
-        b = self.denominator
+        a = abs(self.numerator)
+        b = abs(self.denominator)
         while a and b:
             if a > b:
                 a = a % b
@@ -19,6 +19,10 @@ class Fraction:
         nod = a + b
         self.numerator //= nod
         self.denominator //= nod
+        if self.numerator < 0 and self.denominator < 0:
+            self.numerator, self.denominator = abs(self.numerator), abs(self.denominator)
+        elif self.denominator < 0:
+            self.numerator, self.denominator = 0 - self.numerator, abs(self.denominator)
 
     def __str__(self):
         return f'{self.numerator}/{self.denominator}'
