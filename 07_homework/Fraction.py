@@ -13,9 +13,9 @@ class Fraction:
         b = abs(self.denominator)
         while a and b:
             if a > b:
-                a = a % b
+                a %= b
             else:
-                b = b % a
+                b %= a
         nod = a + b
         self.numerator //= nod
         self.denominator //= nod
