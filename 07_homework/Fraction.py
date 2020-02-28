@@ -8,7 +8,7 @@ class Fraction:
         self.numerator, self.denominator = self.fraction.split('/')
         self.numerator, self.denominator = int(self.numerator), int(self.denominator)
 
-    def _reduce(self):
+    def __nod(self):
         a = abs(self.numerator)
         b = abs(self.denominator)
         while a and b:
@@ -16,7 +16,10 @@ class Fraction:
                 a %= b
             else:
                 b %= a
-        nod = a + b
+        return a + b
+
+    def reduce(self):
+        nod = self.__nod()
         self.numerator //= nod
         self.denominator //= nod
         if self.numerator < 0 and self.denominator < 0:
