@@ -15,7 +15,7 @@ def last_digit(a, b):
         9: [9, 1],
     }
     possible_last_digits = powers[base_end]
-    last_digit_index = (b % 100) % len(possible_last_digits)
+    last_digit_index = b % len(possible_last_digits)
     return possible_last_digits[last_digit_index - 1]
 
 
